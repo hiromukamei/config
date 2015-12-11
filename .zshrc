@@ -30,7 +30,10 @@ setopt hist_ignore_dups
 setopt share_history
 
 ##vim風keybind
-bindkey -v
+#bindkey -v
+
+##vim風keybind
+bindkey -e
 
 ##履歴検索
 autoload history-search-end
