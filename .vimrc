@@ -23,9 +23,9 @@ set scrolloff=5
 "Search Highlight
 set hlsearch
 "Setting Tab Width
-set tabstop=4
+set tabstop=2
 "Setting autoident detail
-set shiftwidth=4
+set shiftwidth=2
 "File Encoding
 set encoding=utf-8
 "Add automatically judge file encode
