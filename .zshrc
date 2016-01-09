@@ -33,7 +33,7 @@ setopt share_history
 #bindkey -v
 
 ##vim風keybind
-bindkey -e
+bindkey -v
 
 ##履歴検索
 autoload history-search-end

@@ -50,7 +50,7 @@ set virtualedit=all
 set list
 set listchars=tab:▸-,trail:-,extends:»,precedes:«,nbsp:%,eol:↲
 "available mouse"
-set mouse=
+set mouse=a
 "command shortcut
 command NT NERDTree
 command QR QuickRun
