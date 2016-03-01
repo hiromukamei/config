@@ -2,6 +2,7 @@ Mac環境構築memo
 ===
  
 ## Application
+---
 ### brew cask
 - google chrome
     - extensionでvrome追加
@@ -19,6 +20,8 @@ Mac環境構築memo
 - dropbox
     - account設定
 - mou
+- docker tool box
+- xamarin studio
 
 ### app store
 - alfred
@@ -44,6 +47,7 @@ Mac環境構築memo
 - microsoft powerpoint
 
 ## 開発環境
+---
 ### homebrew関連
 - homebrew install
 - homebrew cask install
