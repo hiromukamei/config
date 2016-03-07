@@ -1,12 +1,12 @@
 ##rbenv,pyenv,npmにPATHを通す
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-export PATH="/usr/local/share/npm/bin:$PATH" 
-
-##docker setting
-eval "$(docker-machine env)"
+#export PATH="$HOME/.rbenv/bin:$PATH"
+#eval "$(rbenv init -)"
+#export PATH="$HOME/.pyenv/bin:$PATH"
+#eval "$(pyenv init -)"
+#export PATH="/usr/local/share/npm/bin:$PATH" 
+#
+###docker setting
+#eval "$(docker-machine env)"
 
 ##補完機能を有効にする
 #how to use zsh-completions
