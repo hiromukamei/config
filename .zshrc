@@ -13,9 +13,9 @@ eval "$(docker-machine env)"
 #brew install zsh-completions
 #下のpathは環境に応じて変更
 #note: homebrewが使えなければ、FPATHをコメントアウト、compinit -u => compinit
-FPATH=/usr/local/Cellar/zsh-completions/0.12.0/share/zsh-completions/:$FPATH
+#FPATH=/usr/local/Cellar/zsh-completions/0.12.0/share/zsh-completions/:$FPATH
 autoload -U compinit
-compinit -u
+compinit #-u
 
 ##環境変数
 export LANG=ja_JP.UTF-8
