@@ -1,21 +1,21 @@
 ##rbenv,pyenv,npmにPATHを通す
-#export PATH="$HOME/.rbenv/bin:$PATH"
-#eval "$(rbenv init -)"
-#export PATH="$HOME/.pyenv/bin:$PATH"
-#eval "$(pyenv init -)"
-#export PATH="/usr/local/share/npm/bin:$PATH" 
-#
-###docker setting
-#eval "$(docker-machine env)"
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+export PATH="/usr/local/share/npm/bin:$PATH" 
+
+##docker setting
+eval "$(docker-machine env)"
 
 ##補完機能を有効にする
 #how to use zsh-completions
 #brew install zsh-completions
 #下のpathは環境に応じて変更
 #note: homebrewが使えなければ、FPATHをコメントアウト、compinit -u => compinit
-#FPATH=/usr/local/Cellar/zsh-completions/0.12.0/share/zsh-completions/:$FPATH
+FPATH=/usr/local/Cellar/zsh-completions/0.12.0/share/zsh-completions/:$FPATH
 autoload -U compinit
-compinit #-u
+compinit -u
 
 ##環境変数
 export LANG=ja_JP.UTF-8
@@ -60,12 +60,25 @@ setopt nolistbeep
 ##補完候補を詰めて表示
 setopt list_packed
 
-##shell prompt設定
+##color extension
 autoload -Uz colors
 colors
 
-PROMPT="%F{magenta}%n%f@%F{cyan}%m%f%# "
-RPROMPT="[%F{green}%d%f]"
+##色確認コマンド
+#for c in {000..255}; do echo -n "\e[38;5;${c}m $c" ; [ $(($c%16)) -eq 15 ] && echo;done;echo
+
+##shell prompt設定
+##change hostname according to your environment
+if [ `hostname` = 'john' ]; then
+	local USERC=$'%{\e[38;5;23m%}%n%{\e[m%}'
+	local HOSTC=$'%{\e[38;5;9m%}%m%{\e[m%}'
+	RPROMPT=$'%{\e[38;5;178m%}[%~]%{\e[m%}'
+else
+	local USERC=$'%{\e[38;5;33m%}%n%{\e[m%}'
+	local HOSTC=$'%{\e[38;5;53m%}%m%{\e[m%}'
+	RPROMPT=$'%{\e[38;5;209m%}[%~]%{\e[m%}'
+fi
+PROMPT=$USERC"@"$HOSTC"%# "
 
 ##lsコマンド色設定
 export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
