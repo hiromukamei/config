@@ -6,7 +6,7 @@ eval "$(pyenv init -)"
 export PATH="/usr/local/share/npm/bin:$PATH" 
 
 ##docker setting
-eval "$(docker-machine env)"
+eval "$(docker-machine env default)"
 
 ##補完機能を有効にする
 #how to use zsh-completions
@@ -81,10 +81,11 @@ fi
 PROMPT=$USERC"@"$HOSTC"%# "
 
 ##lsコマンド色設定
-export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
+export LSCOLORS=exfxcxcxbxgxgxbxbxexex
+export LS_COLORS='di=34:ln=35:so=32:pi=32:ex=31:bd=36:cd=36:su=31:sg=31:tw=34:ow=34'
 
-##補完時色設定
-zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'pi=33' 'ex=31'
+##補完色設定
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
 ##エイリアス設定
 alias ls='ls -G'
