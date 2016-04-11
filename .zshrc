@@ -18,7 +18,7 @@ autoload -U compinit
 compinit -u
 
 ##環境変数
-export LANG=ja_JP.UTF-8
+export LANG=en_US.UTF-8
 export EDITOR=vim
 
 ##履歴設定
@@ -101,3 +101,6 @@ setopt AUTO_PARAM_SLASH
 
 ##大文字、小文字を区別せず補完する
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+
+## shell built-in rをoffにする
+disable r

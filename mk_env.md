@@ -45,6 +45,7 @@ Mac環境構築memo
 - microsoft word
 - microsoft excel
 - microsoft powerpoint
+- clipy
 
 ## 開発環境
 ---
@@ -60,6 +61,8 @@ Mac環境構築memo
 - wget
 - gcc
 - zsh-completions
+- vim
+- homebrew/science/r
 
 ### shell関連
 - githubからzshrc, gitconfig, vimrcをとってくる
