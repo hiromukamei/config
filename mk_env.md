@@ -74,3 +74,4 @@ Mac環境構築memo
 - screen saver設定(mouseを左上にもってくと起動するようにする)
 - trackpad設定
 - keyrepeatをfast, delay until repeatをshortにする
+- google IMEに切り替え

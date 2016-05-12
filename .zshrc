@@ -32,8 +32,8 @@ setopt hist_ignore_dups
 ##同時に起動したzshの間でヒストリを共有する
 setopt share_history
 
-##vim風keybind
-bindkey -v
+##emacs風keybind
+bindkey -e
 
 ##履歴検索
 autoload history-search-end

@@ -12,8 +12,8 @@
 "Environment Settings 
 "--------------------
 
-"Disable SoftTab
-set noexpandtab
+"Enable SoftTab
+set expandtab
 "Silent
 set visualbell t_vb=
 "Display Number
@@ -50,7 +50,9 @@ set virtualedit=all
 set list
 set listchars=tab:▸-,trail:-,extends:»,precedes:«,nbsp:%,eol:↲
 "available mouse"
-set mouse=a
+"set mouse=a
+"Enable backspace in insert mode"
+set backspace=indent,eol,start
 "command shortcut
 command NT NERDTree
 command QR QuickRun
