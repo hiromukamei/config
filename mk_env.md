@@ -79,3 +79,4 @@ Mac環境構築memo
 - trackpad設定
 - keyrepeatをfast, delay until repeatをshortにする
 - desktop icon表示位置
+- .ssh/config復元
