@@ -40,12 +40,12 @@ Mac環境構築memo
     - account設定
 - evernote
     - account設定
+- XQuartz
 
 ### other
 - microsoft word
 - microsoft excel
 - microsoft powerpoint
-- clipy
 
 ## 開発環境
 ---
@@ -63,6 +63,7 @@ Mac環境構築memo
 - zsh-completions
 - vim
 - homebrew/science/r
+- tree
 
 ### shell関連
 - githubからzshrc, gitconfig, vimrcをとってくる
@@ -70,8 +71,11 @@ Mac環境構築memo
 
 ### その他
 - printer設定
+  - z202
+  - sfc
 - wifi設定
+- VPN設定
 - screen saver設定(mouseを左上にもってくと起動するようにする)
 - trackpad設定
 - keyrepeatをfast, delay until repeatをshortにする
-- google IMEに切り替え
+- desktop icon表示位置

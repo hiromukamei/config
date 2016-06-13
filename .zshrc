@@ -1,9 +1,9 @@
 ##rbenv,pyenv,npmにPATHを通す
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
-export PATH="$HOME/.pyenv/bin:$PATH"
+export PYENV_ROOT="/usr/local/var/pyenv"
 eval "$(pyenv init -)"
-export PATH="/usr/local/share/npm/bin:$PATH" 
+export PATH="/usr/local/share/npm/bin:$PATH"
 
 ##docker setting
 eval "$(docker-machine env default)"
@@ -11,9 +11,8 @@ eval "$(docker-machine env default)"
 ##補完機能を有効にする
 #how to use zsh-completions
 #brew install zsh-completions
-#下のpathは環境に応じて変更
-#note: homebrewが使えなければ、FPATHをコメントアウト、compinit -u => compinit
-FPATH=/usr/local/Cellar/zsh-completions/0.12.0/share/zsh-completions/:$FPATH
+fpath=(/usr/local/share/zsh-completion/ $fpath) # for mac
+
 autoload -U compinit
 compinit -u
 

@@ -1,4 +1,4 @@
-# zsh & vim config files
+zsh & vim config files
 ===
 
 ## Installation
@@ -9,3 +9,6 @@ mv .vimrc .zshrc
 ```
 
 and also you need to get **zsh-conmpletions**
+
+## Configuration
+- change hostname in .zshrc according to your environment
