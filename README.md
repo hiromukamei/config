@@ -1,4 +1,4 @@
-zsh & vim config files
+zsh & vim & git config files
 ===
 
 ## Installation
@@ -14,4 +14,4 @@ and also you need to get **zsh-conmpletions**
 ```
 
 ## Configuration
-- change hostname in .zshrc according to your environment
+Please change hostname in .zshrc and username & email in .gitconfig according to your environment

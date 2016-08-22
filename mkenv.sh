@@ -12,12 +12,13 @@ expr "$0" : "/.*" > /dev/null || actual_config_files_dir=`(cd "${actual_config_f
 if [ "$1" = "install" ]; then
   mkdir -p ~/.vim/dein/tomls
 elif [ "$1" = "update" ]; then
-  echo $1
   git --git-dir=${actual_config_files_dir}/.git --work-tree=${actual_config_files_dir} pull origin master
-  rm ${actual_config_files_dir}/.vimrc
-  rm ${actual_config_files_dir}/.zshrc
-  rm ${actual_config_files_dir}/*.toml
+  rm ~/.vimrc
+  rm ~/.zshrc
+  rm ~/.vim/dein/tomls/*.toml
+  rm ~/.gitconfig
 fi
 ln -s ${actual_config_files_dir}/.vimrc ~
 ln -s ${actual_config_files_dir}/.zshrc ~
+ln -s ${actual_config_files_dir}/.gitconfig ~
 ln -s ${actual_config_files_dir}/*.toml ~/.vim/dein/tomls
