@@ -5,9 +5,6 @@ export PYENV_ROOT="/usr/local/var/pyenv"
 eval "$(pyenv init -)"
 export PATH="/usr/local/share/npm/bin:$PATH"
 
-##docker setting
-eval "$(docker-machine env default)"
-
 ##補完機能を有効にする
 #how to use zsh-completions
 #brew install zsh-completions

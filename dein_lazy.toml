@@ -1,0 +1,56 @@
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+on_path = '.*'
+
+[[plugins]]
+repo = 'Shougo/neoyank.vim'
+on_path = '.*'
+
+[[plugins]]
+repo = 'Shougo/unite.vim'
+depends = ['neomru.vim', 'neoyank.vim']
+hook_add = '''
+  let g:unite_enable_start_insert = 1
+  let g:unite_force_overwrite_statusline = 0
+  let g:unite_source_history_yank_enable = 1
+  let g:unite_source_history_yank_limit = 200
+  let g:unite_source_file_mru_limit = 200
+  nnoremap <silent> <Space>uy :<C-u>Unite history/yank<CR>
+  nnoremap <silent> <Space>uf :<C-u>Unite file<CR>
+  nnoremap <silent> <Space>ur :<C-u>Unite file_rec<CR>
+  nnoremap <silent> <Space>uu :<C-u>Unite buffer file_mru<CR>
+  nnoremap <silent> <Space>um :<C-u>Unite file_mru<CR>
+  nnoremap <silent> <Space>ub :<C-u>Unite buffer<CR>
+  augroup MyAutoCmd
+    autocmd FileType unite nnoremap <silent><buffer><expr> <C-j> unite#do_action('split')
+    autocmd FileType unite inoremap <silent><buffer><expr> <C-j> unite#do_action('split')
+    autocmd FileType unite nnoremap <silent><buffer><expr> <C-l> unite#do_action('vsplit')
+    autocmd FileType unite inoremap <silent><buffer><expr> <C-l> unite#do_action('vsplit')
+  augroup END
+'''
+
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+on_path = '.*'
+hook_source = '''
+  command NT NERDTree
+'''
+
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+on_path = '.*'
+hook_source = '''
+  command QR QuickRun
+'''
+
+[[plugins]]
+repo = 'tpope/vim-surround'
+on_path = '.*'
+
+[[plugins]]
+repo = 'Townk/vim-autoclose'
+on_i = 1
+
+[[plugins]]
+repo = 'tpope/vim-endwise'
+on_i = 1

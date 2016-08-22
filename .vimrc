@@ -1,119 +1,100 @@
-"--------------------
-"Note
-"--------------------
-"How to setup
-"
-"* mkdir -p ~/.vim/bundle
-"* git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
-"* vim
-"* :NeobundleInstall
+"----------------
+"General Settings
+"----------------
 
-"--------------------
-"Environment Settings 
-"--------------------
-
-"Enable SoftTab
+"Autocmd initialize
+augroup MyAutoCmd
+  autocmd!
+augroup END
+"Enable syntax hilight
+syntax on
+"Use spaces instead of tab
 set expandtab
-"Silent
+"Disable beep
 set visualbell t_vb=
-"Display Number
+"Display number
 set number
-"See under Window
+"Enable to see window below part
 set scrolloff=5
-"Search Highlight
+"Enable search highlight
 set hlsearch
-"Setting Tab Width
+"Tab width
 set tabstop=2
-"Setting autoident detail
+"Used tab width in autoident
 set shiftwidth=2
-"File Encoding
+"File encoding
 set encoding=utf-8
-"Add automatically judge file encode
-"set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
+"Judge CR,CR+LF,LF automatically
 set fileformats=unix,dos,mac
-"Wrap or Not Wrap
+"Wrap lines
 set wrap
-"Case-Insensive
+"Case-Insensitive
 set ignorecase
-"Type jj quickly in INSERT MODE is same as ESC
-inoremap jj <Esc>
-"Do not make Backup File
-set noswapfile
+"Do not make backup file
 set nobackup
-"Can Change File without File not Saved
+"Do not make swap file
+set noswapfile
+"Enable to open another file even if not saved files exist
 set hidden
-"Add status
+"Display status information
 set laststatus=2
-"Can move anywhere
+"Enable to move anywhere
 set virtualedit=all
 "Show Invisible Letter
 set list
 set listchars=tab:▸-,trail:-,extends:»,precedes:«,nbsp:%,eol:↲
-"available mouse"
+"Enable mouse
 "set mouse=a
-"Enable backspace in insert mode"
+"Enable backspace in insert mode
 set backspace=indent,eol,start
-"command shortcut
-command NT NERDTree
-command QR QuickRun
+"Key aliases
+inoremap jj <Esc>
+inoremap <C-e> <Esc>$a
+inoremap <C-a> <Esc>0i
+noremap <C-e> $l
+noremap <C-a> 0
 
-"------------------
-"NeoBundle Settings
-"------------------
 
-if has('vim_starting')
-  set nocompatible
+"-------------
+"Dein Settings
+"-------------
 
-  " Required:
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
+let s:dein_dir = expand('~/.vim/dein')
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+
+if !isdirectory(s:dein_repo_dir)
+  execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
+endif
+execute 'set runtimepath^=' . s:dein_repo_dir
+
+let s:toml_path = s:dein_dir . '/tomls/dein.toml'
+let s:lazy_toml_path = s:dein_dir . '/tomls/dein_lazy.toml'
+
+if dein#load_state(s:dein_dir)
+  call dein#begin(s:dein_dir)
+  call dein#load_toml(s:toml_path, {'lazy': 0})
+  call dein#load_toml(s:lazy_toml_path, {'lazy': 1})
+  call dein#end()
+  call dein#save_state()
 endif
 
-  " Required:
-call neobundle#begin(expand('~/.vim/bundle/'))
-
-  " Let NeoBundle manage itself
-  " Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-  " My Bundles here:
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'ujihisa/unite-colorscheme'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'itchyny/lightline.vim'
-NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'Townk/vim-autoclose'
-NeoBundle 'tpope/vim-endwise'
-" colorscheme
-NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'croaker/mustang-vim'
-NeoBundle 'jeffreyiacono/vim-colors-wombat'
-NeoBundle 'nanotech/jellybeans.vim'
-NeoBundle 'vim-scripts/Lucius'
-NeoBundle 'tomasr/molokai'
-NeoBundle 'vim-scripts/Zenburn'
-NeoBundle 'mrkn/mrkn256.vim'
-NeoBundle 'jpo/vim-railscasts-theme'
-NeoBundle 'therubymug/vim-pyte'
-
-" Lightline Setting
-let g:lightline = {
-	\ 'colorscheme': 'jellybeans',
-	\ 'separator': { 'left': '', 'right': '' },
-	\ 'subseparator': { 'left': '|', 'right': '|' }
-	\}
-" Colorscheme Setting
-syntax enable
-hi PmenuSel cterm=reverse ctermfg=33 ctermbg=222 gui=reverse guifg=#3399ff guibg=#f0e68c
-
-  " Required:
-call neobundle#end()
-
-  " Required:
+"Automatically detecting filetype, loading indentation and plugin configuration for filetypes
 filetype plugin indent on
 
-" If there are uninstalled bundles found on startup,
-" this will conveniently pronpt you to install them.
-NeoBundleCheck
+if dein#check_install()
+  call dein#install()
+endif
 
-colorscheme jellybeans
+"** NOTE **
+"Execute commands below when:
+"  - Plugins are added or removed
+"  - Toml file is changed
+"call dein#update() // for update
+"call dein#claer_state() // remake cache file
+
+
+"-------------
+"Color scheme
+"-------------
+
+colorscheme hybrid

@@ -1,10 +1,13 @@
 # This is Git's per-user configuration file.
-# Please adapt and uncomment the following lines:
 [user]
 	name = Hiromu Kamei
 	email = hk.radwimps@icloud.com
 [color]
 	ui = auto
 [alias]
-	tree = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
+	graph = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
 	st = status
+	co = checkout 
+	cm = commit
+	br = branch
+

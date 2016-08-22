@@ -1,0 +1,38 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo = 'tomasr/molokai'
+
+[[plugins]]
+repo = 'nanotech/jellybeans.vim'
+
+[[plugins]]
+repo = 'w0ng/vim-hybrid'
+
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+hook_add = '''
+  let g:lightline = {
+    \ 'colorscheme': 'wombat',
+    \ 'separator': {'left': '', 'right': ''},
+    \ 'subseparator': {'left': '|', 'right': '|'},
+    \ 'active': {
+    \   'left': [['mode', 'paste'], ['readonly', 'filename', 'modified']],
+    \   'right': [['lineinfo', 'percent'], ['fileformat', 'fileencoding', 'filetype']]
+    \ },
+    \ 'inactive': {
+    \   'left': [['filename']],
+    \   'right': [['lineinfo', 'percent']]
+    \ },
+    \ 'component_function': {
+    \   'mode': 'LightLineMode'
+    \ }
+  \ }
+
+  function! LightLineMode()
+    return
+      \ &ft == 'unite' ? 'Unite' :
+      \ winwidth(0) > 60 ? lightline#mode() : ''
+  endfunction
+'''
