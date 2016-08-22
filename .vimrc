@@ -22,6 +22,10 @@ set hlsearch
 set tabstop=2
 "Used tab width in autoident
 set shiftwidth=2
+"Enable autoindent
+set autoindent
+"Enable smartindent
+set smartindent
 "File encoding
 set encoding=utf-8
 "Judge CR,CR+LF,LF automatically
@@ -97,4 +101,5 @@ endif
 "Color scheme
 "-------------
 
+set background=dark
 colorscheme hybrid
