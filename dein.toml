@@ -8,6 +8,9 @@ repo = 'tomasr/molokai'
 repo = 'nanotech/jellybeans.vim'
 
 [[plugins]]
+repo = 'altercation/vim-colors-solarized'
+
+[[plugins]]
 repo = 'w0ng/vim-hybrid'
 
 [[plugins]]

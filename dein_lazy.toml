@@ -22,10 +22,10 @@ hook_add = '''
   nnoremap <silent> <Space>um :<C-u>Unite file_mru<CR>
   nnoremap <silent> <Space>ub :<C-u>Unite buffer<CR>
   augroup MyAutoCmd
-    autocmd FileType unite nnoremap <silent><buffer><expr> <C-j> unite#do_action('split')
-    autocmd FileType unite inoremap <silent><buffer><expr> <C-j> unite#do_action('split')
-    autocmd FileType unite nnoremap <silent><buffer><expr> <C-l> unite#do_action('vsplit')
-    autocmd FileType unite inoremap <silent><buffer><expr> <C-l> unite#do_action('vsplit')
+    autocmd FileType unite nnoremap <silent><buffer><expr> <C-k> unite#do_action('split')
+    autocmd FileType unite inoremap <silent><buffer><expr> <C-k> unite#do_action('split')
+    autocmd FileType unite nnoremap <silent><buffer><expr> <C-h> unite#do_action('vsplit')
+    autocmd FileType unite inoremap <silent><buffer><expr> <C-h> unite#do_action('vsplit')
   augroup END
 '''
 
