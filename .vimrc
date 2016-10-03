@@ -94,7 +94,7 @@ endif
 "  - Plugins are added or removed
 "  - Toml file is changed
 "call dein#update() // for update
-"call dein#claer_state() // remake cache file
+"call dein#clear_state() // remake cache file
 
 
 "-------------
