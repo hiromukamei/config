@@ -53,10 +53,13 @@ set listchars=tab:▸-,trail:-,extends:»,precedes:«,nbsp:%,eol:↲
 set backspace=indent,eol,start
 "Key aliases
 inoremap jj <Esc>
-inoremap <C-e> <Esc>$a
-inoremap <C-a> <Esc>0i
-noremap <C-e> $l
-noremap <C-a> 0
+inoremap <C-a> <Esc><Home>
+inoremap <C-e> <Esc><End>
+inoremap <C-f> <Right>
+inoremap <C-b> <Left>
+inoremap <C-h> <Backspace>
+noremap <C-a> <Home>
+noremap <C-e> <End>
 
 
 "-------------

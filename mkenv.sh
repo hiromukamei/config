@@ -1,17 +1,34 @@
 #!/bin/sh
 
 
-if [ $# -ne 1 ]; then
-  printf '\e[33m***\e[0m Usage: ./mkenv.sh [install/update]\n'
+check_args(){
+  host_kinds=('mac' 'linux')
+  commands=('install' 'update')
+
+  if ! `eval echo '${'"$1"'[@]}' | grep -wq "$2"`; then
+    printf '\e[33m***\e[0m Some parameters were wrong!!\n'
+    exit 1
+  fi
+}
+
+
+if [ $# -ne 2 ]; then
+  printf '\e[33m***\e[0m Usage: ./mkenv.sh [mac | linux] [install | update]\n'
   exit 1
+else
+  check_args 'host_kinds' "$1"
+  check_args 'commands' "$2"
 fi
+
+host="$1"
+command="$2"
 
 actual_config_files_dir=`dirname "${0}"`
 expr "$0" : "/.*" > /dev/null || actual_config_files_dir=`(cd "${actual_config_files_dir}" && pwd)`
 
-if [ "$1" = "install" ]; then
+if [ ${command} = "install" ]; then
   mkdir -p ~/.vim/dein/tomls
-elif [ "$1" = "update" ]; then
+elif [ ${command} = "update" ]; then
   git --git-dir=${actual_config_files_dir}/.git --work-tree=${actual_config_files_dir} pull origin master
   rm ~/.vimrc
   rm ~/.zshrc
@@ -19,8 +36,9 @@ elif [ "$1" = "update" ]; then
   rm ~/.gitconfig
   rm ~/.tmux.conf
 fi
-ln -s ${actual_config_files_dir}/.vimrc ~
-ln -s ${actual_config_files_dir}/.zshrc ~
-ln -s ${actual_config_files_dir}/.gitconfig ~
-ln -s ${actual_config_files_dir}/*.toml ~/.vim/dein/tomls
-ln -s ${actual_config_files_dir}/.tmux.conf ~
+
+ln -s ${actual_config_files_dir}/vim/vimrc ~/.vimrc
+ln -s ${actual_config_files_dir}/zsh/${host}_zshrc ~/.zshrc
+ln -s ${actual_config_files_dir}/git/gitconfig ~/.gitconfig
+ln -s ${actual_config_files_dir}/vim/*.toml ~/.vim/dein/tomls
+ln -s ${actual_config_files_dir}/tmux/${host}_tmux.conf ~/.tmux.conf

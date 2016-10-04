@@ -1,17 +1,17 @@
-zsh & vim & git config files
+zsh & vim & git $ tmux config files
 ===
 
 ## Installation
 ```
-./mkenv.sh install
+./mkenv.sh [mac | linux] install
 ```
 
-and also you need to get **zsh-conmpletions**
+Also you need to get **zsh-conmpletions** and change FPATH in .zshrc
 
 ## Update
 ```
-./mkenv.sh update
+./mkenv.sh [mac | linux] update
 ```
 
 ## Configuration
-Please change hostname in .zshrc and username & email in .gitconfig according to your environment
+Please change username & email in .gitconfig according to your environment

@@ -1,0 +1,92 @@
+## PATH for rbenv,pyenv,npm
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+export PYENV_ROOT="/usr/local/var/pyenv"
+eval "$(pyenv init -)"
+export PATH="/usr/local/share/npm/bin:$PATH"
+
+## PATH for completion definition list
+## brew install zsh-completions and check path for it!
+export FPATH="/usr/local/share/zsh-completion:$FPATH"
+
+## Enable complement function
+autoload -U compinit
+compinit -u
+
+## Environment variable
+export LANG=en_US.UTF-8
+export EDITOR=vim
+
+## History
+HISTFILE=~/.zsh_history
+HISTSIZE=50000
+SAVEHIST=50000
+
+## Do not remember same command in history
+setopt hist_ignore_dups
+
+## Share history among terminals
+setopt share_history
+
+## Emacs key-bindings
+bindkey -e
+
+## Search history
+autoload history-search-end
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+bindkey "^p" history-beginning-search-backward-end
+bindkey "^n" history-beginning-search-forward-end
+
+## Enable 'cd' without typing
+setopt auto_cd
+
+## Ignore Ctrl+D
+setopt ignore_eof
+
+## Command auto-correct
+setopt correct
+
+## No beep sound
+setopt nolistbeep
+
+## 'ls' optimization
+setopt list_packed
+
+## Enable color extension
+autoload -Uz colors
+colors -u
+
+## You can check available colors with script below on shell
+#for c in {000..255}; do echo -n "\e[38;5;${c}m $c" ; [ $(($c%16)) -eq 15 ] && echo;done;echo
+
+## shell prompt
+local USERC=$'%{\e[38;5;33m%}%n%{\e[m%}'
+local HOSTC=$'%{\e[38;5;53m%}%m%{\e[m%}'
+RPROMPT=$'%{\e[38;5;209m%}[%~]%{\e[m%}'
+PROMPT=$USERC"@"$HOSTC"%# "
+
+## 'ls' colors
+export LSCOLORS=exfxcxcxbxgxgxbxbxexex
+export LS_COLORS='di=34:ln=35:so=32:pi=32:ex=31:bd=36:cd=36:su=31:sg=31:tw=34:ow=34'
+
+## completion color setting
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+
+## key ailias
+alias ls='ls --color'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias be='bundle exec'
+
+## Display complement candidate temporarily
+setopt ALWAYS_LAST_PROMPT
+
+## When directory is complemented, '/' is autobatically added at the end
+setopt AUTO_PARAM_SLASH
+
+## Do not distinguish between lowercase and uppercase
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+
+## Disable shell built-in 'r'
+disable r
