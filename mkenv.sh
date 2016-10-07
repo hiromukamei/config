@@ -41,6 +41,7 @@ elif [ ${command} = "cleanup" ]; then
   rm -r ~/.vim
   rm ~/.gitconfig
   rm ~/.tmux.conf
+  exit 0
 fi
 
 ln -s ${actual_config_files_dir}/vim/vimrc ~/.vimrc
