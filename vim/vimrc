@@ -58,6 +58,7 @@ inoremap <C-e> <Esc><End>
 inoremap <C-f> <Right>
 inoremap <C-b> <Left>
 inoremap <C-h> <Backspace>
+inoremap <C-d> <Delete>
 noremap <C-a> <Home>
 noremap <C-e> <End>
 
