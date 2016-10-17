@@ -1,12 +1,5 @@
-## PATH for rbenv,pyenv,npm
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-export PYENV_ROOT="/usr/local/var/pyenv"
-eval "$(pyenv init -)"
-export PATH="/usr/local/share/npm/bin:$PATH"
-
 ## PATH for completion definition list
-## brew install zsh-completions and check path for it!
+## Type 'sudo git clone git://github.com/zsh-users/zsh-completions.git /usr/local/share' for installation!
 export FPATH="/usr/local/share/zsh-completion:$FPATH"
 
 ## Enable complement function

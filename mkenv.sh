@@ -41,6 +41,7 @@ elif [ ${command} = "cleanup" ]; then
   rm -r ~/.vim
   rm ~/.gitconfig
   rm ~/.tmux.conf
+  rm .zcompdump
   exit 0
 fi
 

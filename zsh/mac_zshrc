@@ -6,7 +6,7 @@ eval "$(pyenv init -)"
 export PATH="/usr/local/share/npm/bin:$PATH"
 
 ## PATH for completion definition list
-## brew install zsh-completions and check path for it!
+## Type 'brew install zsh-completions' for installation!
 export FPATH="/usr/local/share/zsh-completion:$FPATH"
 
 ## Enable complement function
