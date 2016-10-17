@@ -61,6 +61,8 @@ inoremap <C-h> <Backspace>
 inoremap <C-d> <Delete>
 noremap <C-a> <Home>
 noremap <C-e> <End>
+nnoremap <C-k> <C-a>
+nnoremap <C-j> <C-x>
 
 
 "-------------
