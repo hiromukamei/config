@@ -1,4 +1,4 @@
-zsh & vim & git $ tmux config files
+Dotfiles
 ===
 
 
