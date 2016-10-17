@@ -3,7 +3,7 @@
 
 check_args(){
   host_kinds=('mac' 'linux')
-  commands=('install' 'update' 'cleanup')
+  instructions=('install' 'update' 'cleanup')
 
   if ! `eval echo '${'"$1"'[@]}' | grep -wq "$2"`; then
     printf '\e[33m***\e[0m Some parameters were wrong!!\n'
@@ -12,12 +12,12 @@ check_args(){
 }
 
 
-if [ $# -ne 2 ]; then
+if [ "$#" -ne 2 ]; then
   printf '\e[33m***\e[0m Usage: ./mkenv.sh [mac | linux] [install | update | cleanup]\n'
   exit 1
 else
-  check_args 'host_kinds' "$1"
-  check_args 'commands' "$2"
+  check_args 'host_kkinds' "$1"
+  check_args 'instructions' "$2"
 fi
 
 host="$1"
@@ -38,7 +38,7 @@ elif [ ${command} = "update" ]; then
 elif [ ${command} = "cleanup" ]; then
   rm ~/.vimrc
   rm ~/.zshrc
-  rm -r ~/.vim
+  rm -rf ~/.vim
   rm ~/.gitconfig
   rm ~/.tmux.conf
   rm .zcompdump
