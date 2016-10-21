@@ -16,7 +16,7 @@ if [ "$#" -ne 2 ]; then
   printf '\e[33m***\e[0m Usage: ./mkenv.sh [mac | linux] [install | update | cleanup]\n'
   exit 1
 else
-  check_args 'host_kkinds' "$1"
+  check_args 'host_kinds' "$1"
   check_args 'instructions' "$2"
 fi
 
