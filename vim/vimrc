@@ -49,6 +49,7 @@ set list
 set listchars=tab:▸-,trail:-,extends:»,precedes:«,nbsp:%,eol:↲
 "Enable mouse
 "set mouse=a
+"set ttymouse=xterm2
 "Enable backspace in insert mode
 set backspace=indent,eol,start
 "Key aliases
