@@ -5,6 +5,9 @@ export PYENV_ROOT="/usr/local/var/pyenv"
 eval "$(pyenv init -)"
 export PATH="/usr/local/share/npm/bin:$PATH"
 
+## PATH for homebrew
+export PATH="/usr/local/sbin:$PATH"
+
 ## PATH for completion definition list
 ## Type 'brew install zsh-completions' for installation!
 export FPATH="/usr/local/share/zsh-completion:$FPATH"
