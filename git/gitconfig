@@ -1,7 +1,7 @@
 # This is Git's per-user configuration file.
 [user]
   name = Hiromu Kamei
-  email = hk.radwimps@icloud.com
+  email = hk.radwimps@gmail.com
 [color]
   ui = auto
 [alias]

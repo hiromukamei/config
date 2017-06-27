@@ -104,9 +104,20 @@ endif
 "call dein#clear_state() // remake cache file
 
 
-"-------------
+"------------
+"My functions
+"------------
+
+"Remove trailing spaces
+:command! Rmts call RemoveTrailingSpaces()
+function! RemoveTrailingSpaces()
+  %s/\s\+$//ge
+endfunction
+
+
+"------------
 "Color scheme
-"-------------
+"------------
 
 set background=dark
 colorscheme hybrid
