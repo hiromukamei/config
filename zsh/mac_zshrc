@@ -23,7 +23,7 @@ export EDITOR=vim
 ## History
 HISTFILE=~/.zsh_history
 HISTSIZE=50000
-SAVEHIST=50000
+SAVEHIST=500000
 
 ## Do not remember same command in history
 setopt hist_ignore_dups
