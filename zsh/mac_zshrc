@@ -1,9 +1,8 @@
-## PATH for rbenv,pyenv,npm
+## PATH for rbenv,pyenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 export PYENV_ROOT="/usr/local/var/pyenv"
 eval "$(pyenv init -)"
-export PATH="/usr/local/share/npm/bin:$PATH"
 
 ## PATH for homebrew
 export PATH="/usr/local/sbin:$PATH"
