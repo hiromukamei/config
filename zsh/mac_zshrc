@@ -81,6 +81,7 @@ alias ls='ls -G'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias be='bundle exec'
+alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
 
 ## Display complement candidate temporarily
 setopt ALWAYS_LAST_PROMPT
