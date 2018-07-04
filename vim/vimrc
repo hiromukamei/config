@@ -8,6 +8,8 @@ augroup MyAutoCmd
 augroup END
 "Enable syntax hilight
 syntax on
+"Limit the number of rows parsed for syntax hilight
+set synmaxcol=200
 "Use spaces instead of tab
 set expandtab
 "Disable beep
