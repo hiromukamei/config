@@ -24,8 +24,17 @@ HISTFILE=~/.zsh_history
 HISTSIZE=50000
 SAVEHIST=500000
 
-## Do not remember same command in history
+## Do not remember command if same as last command
 setopt hist_ignore_dups
+
+## Remove previous same command from history
+setopt hist_save_no_dups
+
+## Older first when remove command from history
+setopt hist_expire_dups_first
+
+## Delete unnecesary blank when command is saved
+setopt hist_reduce_blanks
 
 ## Share history among terminals
 setopt share_history
