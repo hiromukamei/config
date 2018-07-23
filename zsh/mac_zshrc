@@ -52,6 +52,10 @@ bindkey "^n" history-beginning-search-forward-end
 ## Enable 'cd' without typing
 setopt auto_cd
 
+## Use 'cd' like pushd
+setopt auto_pushd
+setopt pushd_ignore_dups
+
 ## Ignore Ctrl+D
 setopt ignore_eof
 
