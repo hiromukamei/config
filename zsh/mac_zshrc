@@ -15,22 +15,25 @@ export FPATH="/usr/local/share/zsh-completion:$FPATH"
 autoload -U compinit
 compinit -u
 
+## Enable is-at-least function (zsh version checker)
+autoload -Uz is-at-least
+
 ## Environment variable
 export LANG=en_US.UTF-8
 export EDITOR=vim
 
 ## History
 HISTFILE=~/.zsh_history
-HISTSIZE=50000
+HISTSIZE=500000
 SAVEHIST=500000
 
-## Do not remember command if same as last command
+## Do not remember command if the command is same as last command
 setopt hist_ignore_dups
 
-## Remove previous same command from history
+## Remove the same command as the previous from history
 setopt hist_save_no_dups
 
-## Older first when remove command from history
+## Remove older command first from history
 setopt hist_expire_dups_first
 
 ## Delete unnecesary blank when command is saved
@@ -39,15 +42,16 @@ setopt hist_reduce_blanks
 ## Share history among terminals
 setopt share_history
 
+## Record the time to history file
+setopt extended_history
+
 ## Emacs key-bindings
 bindkey -e
 
 ## Search history
-autoload history-search-end
-zle -N history-beginning-search-backward-end history-search-end
-zle -N history-beginning-search-forward-end history-search-end
-bindkey "^p" history-beginning-search-backward-end
-bindkey "^n" history-beginning-search-forward-end
+bindkey "^p" history-beginning-search-backward
+bindkey "^n" history-beginning-search-forward
+# bindkey "^r" history-incremental-pattern-search-backward  # peco-select-history is enabled instead
 
 ## Enable 'cd' without typing
 setopt auto_cd
@@ -96,7 +100,7 @@ alias ....='cd ../../..'
 alias be='bundle exec'
 alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
 
-## Display complement candidate temporarily
+## Display complemental candidates temporarily
 setopt ALWAYS_LAST_PROMPT
 
 ## When directory is complemented, '/' is autobatically added at the end
@@ -107,3 +111,36 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 ## Disable shell built-in 'r'
 disable r
+
+## Enable cdr function (history function for cd)
+if is-at-least 4.3.11; then
+  autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+  add-zsh-hook chpwd chpwd_recent_dirs
+  zstyle ':chpwd:*' recent-dirs-max 1000
+  zstyle ':chpwd:*' recent-dirs-default yes
+  zstyle ':completion:*' recent-dirs-insert both
+  zstyle ':chpwd:*' recent-dirs-file "$HOME/.cache/chpwd-recent-dirs"
+fi
+
+## Configuration for peco
+### Search command history incrementally
+function peco-select-history() {
+  BUFFER=$(\history -n -r 1 | peco --query "$LBUFFER")
+  CURSOR=$#BUFFER
+  zle clear-screen
+}
+zle -N peco-select-history
+bindkey '^r' peco-select-history
+
+### Search cdr history incrementally
+function peco-cdr() {
+  local selected_dir="$(cdr -l | sed -e 's/^[[:digit:]]*[[:blank:]]*//' | peco --prompt="cdr >" --query "$LBUFFER")"
+  if [ -n "$selected_dir" ]; then
+    BUFFER="cd $selected_dir"
+    zle accept-line
+  else
+    zle reset-prompt
+  fi
+}
+zle -N peco-cdr
+bindkey '^w' peco-cdr
