@@ -67,8 +67,8 @@ colors -u
 #for c in {000..255}; do echo -n "\e[38;5;${c}m $c" ; [ $(($c%16)) -eq 15 ] && echo;done;echo
 
 ## shell prompt
-local USERC=$'%{\e[38;5;33m%}%n%{\e[m%}'
-local HOSTC=$'%{\e[38;5;53m%}%m%{\e[m%}'
+local USERC=$'%{\e[38;5;81m%}%n%{\e[m%}'
+local HOSTC=$'%{\e[38;5;213m%}%m%{\e[m%}'
 RPROMPT=$'%{\e[38;5;209m%}[%~]%{\e[m%}'
 PROMPT=$USERC"@"$HOSTC"%# "
 
