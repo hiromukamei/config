@@ -14,6 +14,9 @@ repo = 'altercation/vim-colors-solarized'
 repo = 'w0ng/vim-hybrid'
 
 [[plugins]]
+repo = 'cocopon/iceberg.vim'
+
+[[plugins]]
 repo = 'itchyny/lightline.vim'
 hook_add = '''
   let g:lightline = {
