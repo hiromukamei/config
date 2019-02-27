@@ -17,6 +17,22 @@ repo = 'w0ng/vim-hybrid'
 repo = 'cocopon/iceberg.vim'
 
 [[plugins]]
+repo = 'sheerun/vim-polyglot'
+
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
+hook_add = '''
+  let g:gitgutter_max_signs = 500
+  let g:gitgutter_map_keys = 0
+'''
+
+[[plugins]]
+repo = 'Yggdroot/indentLine'
+hook_add = '''
+  let g:indentLine_fileTypeExclude = ['help', 'nerdtree']
+'''
+
+[[plugins]]
 repo = 'itchyny/lightline.vim'
 hook_add = '''
   let g:lightline = {
