@@ -44,6 +44,8 @@ set noswapfile
 set hidden
 "Display status information
 set laststatus=2
+"Execution intervals for automation task like auto save
+set updatetime=1000
 "Enable to move anywhere
 set virtualedit=all
 "Show Invisible Letter
@@ -51,12 +53,11 @@ set list
 set listchars=tab:▸-,trail:-,extends:»,precedes:«,nbsp:%,eol:↲
 augroup highlightIdeographicSpace
   autocmd!
-  autocmd Colorscheme * highlight IdeographicSpace term=underline ctermbg=DarkGreen guibg=DarkGreen
   autocmd VimEnter,WinEnter * match IdeographicSpace /　/
+  autocmd Colorscheme * highlight IdeographicSpace term=underline ctermbg=DarkGreen guibg=DarkGreen
 augroup END
-"Enable mouse
-"set mouse=a
-"set ttymouse=xterm2
+"Disable mouse
+set mouse=
 "Enable backspace in insert mode
 set backspace=indent,eol,start
 "Key aliases
