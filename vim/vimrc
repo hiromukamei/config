@@ -60,8 +60,11 @@ augroup END
 set mouse=
 "Enable backspace in insert mode
 set backspace=indent,eol,start
-"Key aliases
+"General key mapping
 inoremap jj <Esc>
+nnoremap <C-k> <C-a>
+nnoremap <C-j> <C-x>
+"Emacs like key mapping
 inoremap <C-a> <Esc><Home>
 inoremap <C-e> <Esc><End>
 inoremap <C-f> <Right>
@@ -70,8 +73,14 @@ inoremap <C-h> <Backspace>
 inoremap <C-d> <Delete>
 noremap <C-a> <Home>
 noremap <C-e> <End>
-nnoremap <C-k> <C-a>
-nnoremap <C-j> <C-x>
+"Key mapping for marks
+nnoremap mn ]`
+nnoremap mp [`
+nnoremap ml :marks {a-Z}<CR>
+nnoremap mL :marks<CR>
+nnoremap t `
+"Move cursor to the position last located when existing file opened
+autocmd MyAutoCmd BufReadPost * normal! g`"
 
 
 "-------------
@@ -117,7 +126,7 @@ endif
 "------------
 
 "Remove trailing spaces
-:command! Rmts call RemoveTrailingSpaces()
+:command! RMTS call RemoveTrailingSpaces()
 function! RemoveTrailingSpaces()
   %s/\s\+$//ge
 endfunction
