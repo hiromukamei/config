@@ -113,14 +113,18 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 disable r
 
 ## Enable cdr function (history function for cd)
-if is-at-least 4.3.11; then
-  autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
-  add-zsh-hook chpwd chpwd_recent_dirs
-  zstyle ':chpwd:*' recent-dirs-max 1000
-  zstyle ':chpwd:*' recent-dirs-default yes
-  zstyle ':completion:*' recent-dirs-insert both
-  zstyle ':chpwd:*' recent-dirs-file "$HOME/.cache/chpwd-recent-dirs"
-fi
+function() {
+  local recent_dirs_file_dir=".cache"
+  [ ! -e "$recent_dirs_file_dir" ] && mkdir -p "$recent_dirs_file_dir"]
+  if is-at-least 4.3.11; then
+    autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+    add-zsh-hook chpwd chpwd_recent_dirs
+    zstyle ':chpwd:*' recent-dirs-max 1000
+    zstyle ':chpwd:*' recent-dirs-default yes
+    zstyle ':completion:*' recent-dirs-insert both
+    zstyle ':chpwd:*' recent-dirs-file "$HOME/$recent_dirs_file_dir/chpwd-recent-dirs"
+  fi
+}
 
 ## Configuration for peco
 ### Search command history incrementally
