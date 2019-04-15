@@ -9,7 +9,7 @@ augroup END
 "Enable syntax hilight
 syntax on
 "Limit the number of rows parsed for syntax hilight
-set synmaxcol=200
+set synmaxcol=300
 "Use spaces instead of tab
 set expandtab
 "Disable beep
@@ -76,11 +76,13 @@ noremap <C-e> <End>
 "Key mapping for marks
 nnoremap mn ]`
 nnoremap mp [`
-nnoremap ml :marks {a-Z}<CR>
+nnoremap ml :marks {abcdefghijklmnopqrstuvwxyz}<CR>
 nnoremap mL :marks<CR>
 nnoremap t `
 "Move cursor to the position last located when existing file opened
 autocmd MyAutoCmd BufReadPost * normal! g`"
+"Disable tex conceal for math equation
+let g:tex_conceal=''
 
 
 "-------------
