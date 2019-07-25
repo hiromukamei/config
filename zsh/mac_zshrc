@@ -12,7 +12,7 @@ export PATH="/usr/local/sbin:$PATH"
 export FPATH="/usr/local/share/zsh-completion:$FPATH"
 
 ## Enable complement function
-autoload -U compinit
+autoload -Uz compinit
 compinit -u
 
 ## Enable is-at-least function (zsh version checker)
@@ -84,6 +84,18 @@ local USERC=$'%{\e[38;5;42m%}%n%{\e[m%}'
 local HOSTC=$'%{\e[38;5;1m%}%m%{\e[m%}'
 RPROMPT=$'%{\e[38;5;178m%}[%~]%{\e[m%}'
 PROMPT=$USERC"@"$HOSTC"%# "
+
+## git setting
+### Enable a function to get info from vcs(version check system)
+autoload -Uz vcs_info
+### Display format
+zstyle ':vcs_info:*' formats $'%{\e[38;5;42m%}{%b}%{\e[m%}'
+### Execute vcs_info function every prompt
+precmd () { vcs_info }
+### Expand variable as prompt is displayed
+setopt prompt_subst
+### Update RPROMPT
+RPROMPT='${vcs_info_msg_0_}'$RPROMPT
 
 ## 'ls' colors
 export LSCOLORS=exfxcxcxbxgxgxbxbxexex
