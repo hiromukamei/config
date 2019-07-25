@@ -81,8 +81,8 @@ nnoremap mL :marks<CR>
 nnoremap t `
 "Move cursor to the position last located when existing file opened
 autocmd MyAutoCmd BufReadPost * normal! g`"
-"Disable tex conceal for math equation
-let g:tex_conceal=''
+"Disable concealing function which conceal or replace some characters for convenience(e.g. math equation in tex)
+set conceallevel=0
 
 
 "-------------
