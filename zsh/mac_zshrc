@@ -95,7 +95,7 @@ precmd () { vcs_info }
 ### Expand variable as prompt is displayed
 setopt prompt_subst
 ### Update RPROMPT
-RPROMPT='${vcs_info_msg_0_}'$RPROMPT
+RPROMPT='${vcs_info_msg_0_} '$RPROMPT
 
 ## 'ls' colors
 export LSCOLORS=exfxcxcxbxgxgxbxbxexex
