@@ -75,8 +75,13 @@ PROMPT=$USERC"@"$HOSTC"%# "
 ## git setting
 ### Enable a function to get info from vcs(version check system)
 autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git
 ### Display format
-zstyle ':vcs_info:*' formats $'%{\e[38;5;81m%}{%b}%{\e[m%}'
+zstyle ':vcs_info:git:*' formats $'%{\e[38;5;42m%}{%b%u%c}%{\e[m%}'
+### Enable to show staging, unstaging condition
+zstyle ':vcs_info:git:*' check-for-changes true
+zstyle ':vcs_info:git:*' stagedstr "*"
+zstyle ':vcs_info:git:*' unstagedstr "+"
 ### Execute vcs_info function every prompt
 precmd () { vcs_info }
 ### Expand variable as prompt is displayed
