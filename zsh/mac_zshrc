@@ -95,7 +95,7 @@ zstyle ':vcs_info:git:*' formats '{%b%u%c}'
 zstyle ':vcs_info:git:*' actionformats '{%b|%a}'
 ### Enable to show staging, unstaging condition
 zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:git:*' stagedstr "*"
+zstyle ':vcs_info:git:*' stagedstr "•"
 zstyle ':vcs_info:git:*' unstagedstr "+"
 ### Expand variable as prompt is displayed
 setopt prompt_subst
