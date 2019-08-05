@@ -103,7 +103,7 @@ function git-push-status() {
     if [ $current_branch != "HEAD" ]; then
       local push_count=$(git rev-list origin/"$current_branch".."$current_branch" 2>/dev/null | wc -l | tr -d ' ')
         if [ "$push_count" -gt 0 ]; then
-            echo "↑ $push_count"
+            echo " ⇡$push_count"
         fi
     fi
   fi
