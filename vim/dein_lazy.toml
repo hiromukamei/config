@@ -59,6 +59,15 @@ repo = 'simeji/winresizer'
 on_event = 'WinNew'
 hook_add = '''
   let g:winresizer_start_key = '<C-f>'
-  let g:winresizer_vert_resize = 2
-  let g:winresizer_horiz_resize = 2
+'''
+
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+on_path = '.*'
+
+[[plugins]]
+repo = 'kannokanno/previm'
+on_ft = 'markdown'
+hook_add = '''
+  let g:previm_enable_realtime = 1
 '''
