@@ -70,4 +70,5 @@ repo = 'kannokanno/previm'
 on_ft = 'markdown'
 hook_add = '''
   let g:previm_enable_realtime = 1
+  command PO PrevimOpen
 '''
