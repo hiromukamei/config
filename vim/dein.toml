@@ -18,6 +18,9 @@ repo = 'cocopon/iceberg.vim'
 
 [[plugins]]
 repo = 'sheerun/vim-polyglot'
+hook_add = '''
+  let g:polyglot_disabled = ['latex']  "for vimtex, need to disable latex-box
+'''
 
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
@@ -47,22 +50,22 @@ hook_add = '''
 [[plugins]]
 repo = 'itchyny/lightline.vim'
 hook_add = '''
-  let g:lightline={
-    \ 'colorscheme': 'wombat',
-    \ 'separator': {'left': '', 'right': ''},
-    \ 'subseparator': {'left': '|', 'right': '|'},
-    \ 'active': {
-    \   'left': [['mode', 'paste'], ['readonly', 'filename', 'modified']],
-    \   'right': [['lineinfo', 'percent'], ['fileformat', 'fileencoding', 'filetype']]
-    \ },
-    \ 'inactive': {
-    \   'left': [['filename']],
-    \   'right': [['lineinfo', 'percent']]
-    \ },
-    \ 'component_function': {
-    \   'mode': 'LightLineMode'
-    \ }
+  let g:lightline = {
+  \ 'colorscheme': 'wombat',
+  \ 'separator': {'left': '', 'right': ''},
+  \ 'subseparator': {'left': '|', 'right': '|'},
+  \ 'active': {
+  \   'left': [['mode', 'paste'], ['readonly', 'filename', 'modified']],
+  \   'right': [['lineinfo', 'percent'], ['fileformat', 'fileencoding', 'filetype']]
+  \ },
+  \ 'inactive': {
+  \   'left': [['filename']],
+  \   'right': [['lineinfo', 'percent']]
+  \ },
+  \ 'component_function': {
+  \   'mode': 'LightLineMode'
   \ }
+  \}
 
   function! LightLineMode()
     return
