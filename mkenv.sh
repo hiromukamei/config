@@ -35,12 +35,14 @@ elif [ ${command} = "update" ]; then
   rm ~/.vim/dein/tomls/*.toml
   rm ~/.gitconfig
   rm ~/.tmux.conf
+  rm ~/.latexmkrc
 elif [ ${command} = "cleanup" ]; then
   rm ~/.vimrc
   rm ~/.zshrc
   rm -rf ~/.vim
   rm ~/.gitconfig
   rm ~/.tmux.conf
+  rm ~/.latexmkrc
   rm .zcompdump
   exit 0
 fi
@@ -50,3 +52,4 @@ ln -s ${actual_config_files_dir}/zsh/${host}_zshrc ~/.zshrc
 ln -s ${actual_config_files_dir}/git/gitconfig ~/.gitconfig
 ln -s ${actual_config_files_dir}/vim/*.toml ~/.vim/dein/tomls
 ln -s ${actual_config_files_dir}/tmux/${host}_tmux.conf ~/.tmux.conf
+ln -s ${actual_config_files_dir}/latexmk/latexmkrc ~/.latexmkrc
