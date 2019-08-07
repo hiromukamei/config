@@ -67,7 +67,7 @@ on_path = '.*'
 
 [[plugins]]
 repo = 'kannokanno/previm'
-on_ft = ['markdown']
+on_ft = 'markdown'
 hook_add = '''
   let g:previm_enable_realtime = 1
   command PO PrevimOpen
@@ -75,9 +75,14 @@ hook_add = '''
 
 [[plugins]]
 repo = 'lervag/vimtex'
-on_ft = ['tex']
+on_ft = 'tex'
 hook_add = '''
   let g:vimtex_compiler_latexmk_engines = {'_': '-pdfdvi'}
   let g:vimtex_view_method= 'skim'
   let g:vimtex_quickfix_latexlog = {'default': 0}
+'''
+hook_source = '''
+  if empty(v:servername) && exists('*remote_startserver')
+    call remote_startserver('VIM')
+  endif
 '''
