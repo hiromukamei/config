@@ -120,7 +120,8 @@ endif
 "  - Plugins are added or removed
 "  - Toml file is changed
 "call dein#update() // for update
-"call dein#clear_state() // remake cache file
+"call dein#clear_state() // remake state file manually
+"call dein#recache_runtimepath()  // remake runtimepath cache file
 
 
 "------------
