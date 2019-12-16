@@ -83,6 +83,8 @@ nnoremap t `
 autocmd MyAutoCmd BufReadPost * normal! g`"
 "Disable concealing function which conceal or replace some characters for convenience(e.g. math equation in tex)
 set conceallevel=0
+"Default filetype value of .tex file
+let g:tex_flavor = 'tex'
 
 
 "-------------
