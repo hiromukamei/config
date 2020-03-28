@@ -64,6 +64,8 @@ set backspace=indent,eol,start
 inoremap jj <Esc>
 nnoremap <C-k> <C-a>
 nnoremap <C-j> <C-x>
+nnoremap j gj
+nnoremap k gk
 "Emacs like key mapping
 inoremap <C-a> <Esc><Home>
 inoremap <C-e> <Esc><End>
