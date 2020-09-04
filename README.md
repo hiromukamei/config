@@ -34,7 +34,7 @@ git clone git://github.com/zsh-users/zsh-completions.git /usr/local/share/
 ./mkenv.sh [mac | linux] cleanup
 ```
 
-**Note:**  
+**Note:**
 Be careful to execute 'cleanup' because your [.vimrc, .vim/, .tmux.conf, .gitconfig] under home-directory will be deleted.
 
 

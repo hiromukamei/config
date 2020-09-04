@@ -27,12 +27,12 @@ actual_config_files_dir=`dirname "${0}"`
 expr "$0" : "/.*" > /dev/null || actual_config_files_dir=`(cd "${actual_config_files_dir}" && pwd)`
 
 if [ ${command} = "install" ]; then
-  mkdir -p ~/.vim/dein/tomls
+  mkdir -p ~/.cache/dein/tomls
 elif [ ${command} = "update" ]; then
   git --git-dir=${actual_config_files_dir}/.git --work-tree=${actual_config_files_dir} pull origin master
   rm ~/.vimrc
   rm ~/.zshrc
-  rm ~/.vim/dein/tomls/*.toml
+  rm ~/.cache/dein/tomls/*.toml
   rm ~/.gitconfig
   rm ~/.tmux.conf
   rm ~/.latexmkrc
@@ -50,6 +50,6 @@ fi
 ln -s ${actual_config_files_dir}/vim/vimrc ~/.vimrc
 ln -s ${actual_config_files_dir}/zsh/${host}_zshrc ~/.zshrc
 ln -s ${actual_config_files_dir}/git/gitconfig ~/.gitconfig
-ln -s ${actual_config_files_dir}/vim/*.toml ~/.vim/dein/tomls
+ln -s ${actual_config_files_dir}/vim/*.toml ~/.cache/dein/tomls
 ln -s ${actual_config_files_dir}/tmux/${host}_tmux.conf ~/.tmux.conf
 ln -s ${actual_config_files_dir}/latexmk/latexmkrc ~/.latexmkrc
