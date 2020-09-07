@@ -1,4 +1,4 @@
-## PATH for rbenv,pyenv
+## PATH for rbenv, pyenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 export PYENV_ROOT="/usr/local/var/pyenv"
@@ -18,7 +18,7 @@ compinit -u
 ## Enable is-at-least function (zsh version checker)
 autoload -Uz is-at-least
 
-## Environment variable
+## Environment variables
 export LANG=en_US.UTF-8
 export EDITOR=vim
 
@@ -27,16 +27,16 @@ HISTFILE=~/.zsh_history
 HISTSIZE=500000
 SAVEHIST=500000
 
-## Do not remember command if the command is same as last command
+## Do not remember commands if the command is same as the last typed command
 setopt hist_ignore_dups
 
 ## Remove the same command as the previous from history
 setopt hist_save_no_dups
 
-## Remove older command first from history
+## Remove older commands first from history when history size become full
 setopt hist_expire_dups_first
 
-## Delete unnecesary blank when command is saved
+## Delete unnecesary blanks when commands are saved
 setopt hist_reduce_blanks
 
 ## Share history among terminals
@@ -53,7 +53,7 @@ bindkey "^p" history-beginning-search-backward
 bindkey "^n" history-beginning-search-forward
 # bindkey "^r" history-incremental-pattern-search-backward  # peco-select-history is enabled instead
 
-## Enable 'cd' without typing
+## Enable to change directory without typing 'cd'
 setopt auto_cd
 
 ## Use 'cd' like pushd
@@ -72,20 +72,24 @@ setopt nolistbeep
 ## 'ls' optimization
 setopt list_packed
 
-## Enable color extension
+## Enable colors function
 autoload -Uz colors
 colors -u
 
 ## You can check available colors with script below on shell
 #for c in {000..255}; do echo -n "\e[38;5;${c}m $c" ; [ $(($c%16)) -eq 15 ] && echo;done;echo
 
-## shell prompt
+## shell prompt settings
 local USERC=$'%{\e[38;5;42m%}%n%{\e[m%}'
 local HOSTC=$'%{\e[38;5;1m%}%m%{\e[m%}'
 RPROMPT=$'%{\e[38;5;178m%}[%~]%{\e[m%}'
 PROMPT=$USERC"@"$HOSTC"%# "
 
-## git setting
+## 'ls' colors
+export LSCOLORS=exfxcxcxbxgxgxbxbxexex
+export LS_COLORS='di=34:ln=35:so=32:pi=32:ex=31:bd=36:cd=36:su=31:sg=31:tw=34:ow=34'
+
+## git settings
 ### Enable a function to get info from vcs(version check system)
 autoload -Uz vcs_info
 autoload -Uz add-zsh-hook
@@ -125,10 +129,6 @@ function git-push-status() {
 #RPROMPT='${vcs_info_msg_0_} '$RPROMPT
 RPROMPT=$'%{\e[38;5;42m%}%1v%2v%{\e[m%} '$RPROMPT
 
-## 'ls' colors
-export LSCOLORS=exfxcxcxbxgxgxbxbxexex
-export LS_COLORS='di=34:ln=35:so=32:pi=32:ex=31:bd=36:cd=36:su=31:sg=31:tw=34:ow=34'
-
 ## completion color setting
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
@@ -140,7 +140,7 @@ alias ....='cd ../../..'
 alias be='bundle exec'
 alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
 
-## Display complemental candidates temporarily
+## Display complemental candidates of commands when typed tab
 setopt ALWAYS_LAST_PROMPT
 
 ## When directory is complemented, '/' is autobatically added at the end
@@ -152,7 +152,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 ## Disable shell built-in 'r'
 disable r
 
-## Enable cdr function (history function for cd)
+## Enable cdr function (history management function for cd)
 function() {
   local recent_dirs_file_dir=".cache"
   [ ! -e "$recent_dirs_file_dir" ] && mkdir -p "$recent_dirs_file_dir"]
