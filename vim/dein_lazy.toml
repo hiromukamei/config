@@ -1,11 +1,14 @@
+#File seacher for unite
 [[plugins]]
 repo = 'Shougo/neomru.vim'
 on_path = '.*'
 
+#Copy history searcher for unite
 [[plugins]]
 repo = 'Shougo/neoyank.vim'
 on_path = '.*'
 
+#Useful vim interface provider
 [[plugins]]
 repo = 'Shougo/unite.vim'
 depends = ['neomru.vim', 'neoyank.vim']
@@ -28,6 +31,7 @@ hook_add = '''
   augroup END
 '''
 
+#Filer
 [[plugins]]
 repo = 'scrooloose/nerdtree'
 on_path = '.*'
@@ -35,6 +39,7 @@ hook_source = '''
   command NT NERDTree
 '''
 
+#Tester for the writing/opening script
 [[plugins]]
 repo = 'thinca/vim-quickrun'
 on_path = '.*'
@@ -42,18 +47,22 @@ hook_source = '''
   command QR QuickRun
 '''
 
+#All about "surroundings"
 [[plugins]]
 repo = 'tpope/vim-surround'
 on_path = '.*'
 
+#Auto-complete for open-close pair of characters
 [[plugins]]
 repo = 'Townk/vim-autoclose'
 on_path = '.*'
 
+#Auto-complete for if/def-end pair of characters in Ruby, bash, zsh, VB, C/C++ preprocessor, Lua, Elixir, Haskell, Objective-C, Matlab, Crystal, Make, Verilog and Jinja templates
 [[plugins]]
 repo = 'tpope/vim-endwise'
 on_event = 'InsertEnter'
 
+#A useful vim window size controller
 [[plugins]]
 repo = 'simeji/winresizer'
 on_event = 'WinNew'
@@ -61,10 +70,16 @@ hook_add = '''
   let g:winresizer_start_key = '<C-f>'
 '''
 
+#A simple, easy-to-use vim alignment plugin
 [[plugins]]
-repo = 'tyru/open-browser.vim'
+repo = 'junegunn/vim-easy-align'
 on_path = '.*'
+hook_add = '''
+  xmap ga <Plug>(EasyAlign)
+  nmap ga <Plug>(EasyAlign)
+'''
 
+#A viewer for markdown
 [[plugins]]
 repo = 'kannokanno/previm'
 on_ft = 'markdown'
@@ -73,6 +88,16 @@ hook_add = '''
   command PO PrevimOpen
 '''
 
+#An automatic table creator & formatter
+[[plugins]]
+repo = 'dhruvasagar/vim-table-mode'
+on_ft = 'markdown'
+hook_add = '''
+  let g:table_mode_corner = '|'
+  command TT TableModeToggle
+'''
+
+#Auto compiler for latex
 [[plugins]]
 repo = 'lervag/vimtex'
 on_ft = 'tex'

@@ -1,27 +1,35 @@
+#Plugin manager
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
+#Color scheme
 [[plugins]]
 repo = 'tomasr/molokai'
 
+#Color scheme
 [[plugins]]
 repo = 'nanotech/jellybeans.vim'
 
+#Color scheme
 [[plugins]]
 repo = 'altercation/vim-colors-solarized'
 
+#Color scheme
 [[plugins]]
 repo = 'w0ng/vim-hybrid'
 
+#Color scheme
 [[plugins]]
 repo = 'cocopon/iceberg.vim'
 
+#Collection of syntax highlight and indent settings for many programming languages
 [[plugins]]
 repo = 'sheerun/vim-polyglot'
 hook_add = '''
   let g:polyglot_disabled = ['latex']  "for vimtex, need to disable latex-box
 '''
 
+#Visualizer of git diff
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
 hook_add = '''
@@ -40,30 +48,63 @@ hook_add = '''
   augroup END
 '''
 
+#Userful git interface for vim
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
 [[plugins]]
 repo = 'Yggdroot/indentLine'
 hook_add = '''
   let g:indentLine_fileTypeExclude=['help', 'nerdtree', 'unite']
   let g:indentLine_setConceal = 0
+  let g:indentLine_char = '¦'
 '''
 
+#Status line decorator
+[[plugins]]
+repo = 'mengelbrecht/lightline-bufferline'
+depends = ['lightline.vim']
+hook_add = '''
+  set showtabline=2
+  nnoremap <C-b>p :bprev<CR>
+  nnoremap <C-b>n :bnext<CR>
+
+  let g:lightline#bufferline#show_number = 1
+  let g:lightline#bufferline#number_separator = ') '
+  let g:lightline#bufferline#unnamed = '[No Name]'
+  let g:lightline#bufferline#filename_modifier = ':t'  " only filename, no path
+'''
+
+#Status line decorator
 [[plugins]]
 repo = 'itchyny/lightline.vim'
+on_source = ['vim-fugitive', 'lightline-buffer']
 hook_add = '''
   let g:lightline = {
-  \ 'colorscheme': 'wombat',
+  \ 'colorscheme': 'jellybeans',
   \ 'separator': {'left': '', 'right': ''},
   \ 'subseparator': {'left': '|', 'right': '|'},
   \ 'active': {
-  \   'left': [['mode', 'paste'], ['readonly', 'filename', 'modified']],
+  \   'left': [['mode', 'paste'], ['gitbranch', 'readonly', 'filename', 'modified']],
   \   'right': [['lineinfo', 'percent'], ['fileformat', 'fileencoding', 'filetype']]
   \ },
   \ 'inactive': {
   \   'left': [['filename']],
   \   'right': [['lineinfo', 'percent']]
   \ },
+  \ 'tabline': {
+  \   'left': [['buffers']],
+  \   'right': [['close']]
+  \ },
+  \ 'component_expand': {
+  \   'buffers': 'lightline#bufferline#buffers'
+  \ },
+  \ 'component_type': {
+  \   'buffers': 'tabsel',
+  \ },
   \ 'component_function': {
-  \   'mode': 'LightLineMode'
+  \   'mode': 'LightLineMode',
+  \   'gitbranch': 'FugitiveHead'
   \ }
   \}
 
@@ -73,3 +114,4 @@ hook_add = '''
       \ winwidth(0) > 60 ? lightline#mode() : ''
   endfunction
 '''
+
