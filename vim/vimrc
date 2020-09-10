@@ -6,6 +6,8 @@
 augroup MyAutoCmd
   autocmd!
 augroup END
+"Automatically detecting filetype, loading indentation and plugin configuration for filetypes
+filetype plugin indent on
 "Enable syntax hilight
 syntax on
 "Limit the number of rows parsed for syntax hilight
@@ -111,9 +113,6 @@ if dein#load_state(s:dein_dir)
   call dein#end()
   call dein#save_state()
 endif
-
-"Automatically detecting filetype, loading indentation and plugin configuration for filetypes
-filetype plugin indent on
 
 if dein#check_install()
   call dein#install()
