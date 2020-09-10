@@ -6,10 +6,6 @@
 augroup MyAutoCmd
   autocmd!
 augroup END
-"Automatically detecting filetype, loading indentation and plugin configuration for filetypes
-filetype plugin indent on
-"Enable syntax hilight
-syntax on
 "Limit the number of rows parsed for syntax hilight
 set synmaxcol=300
 "Use spaces instead of tab
@@ -136,6 +132,16 @@ endif
 function! RemoveTrailingSpaces()
   %s/\s\+$//ge
 endfunction
+
+
+"--------------------
+"File type and Syntax
+"--------------------
+
+"Automatically detecting filetype, loading indentation and plugin configuration for filetypes
+filetype plugin indent on
+"Enable syntax hilight
+syntax on
 
 
 "------------
