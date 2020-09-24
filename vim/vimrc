@@ -64,7 +64,6 @@ nnoremap <C-k> <C-a>
 nnoremap <C-j> <C-x>
 nnoremap j gj
 nnoremap k gk
-nnoremap p [p
 "Emacs like key mapping
 inoremap <C-a> <Esc><Home>
 inoremap <C-e> <Esc><End>
