@@ -18,6 +18,9 @@ compinit -u
 ## Enable is-at-least function (zsh version checker)
 autoload -Uz is-at-least
 
+## Settings for go
+export GOPATH="$HOME/.go"
+
 ## Environment variables
 export LANG=en_US.UTF-8
 export EDITOR=vim
